@@ -1,0 +1,68 @@
+body {
+  padding: 0px;
+}
+
+.navbar.bg-primary {
+  background: linear-gradient(0deg, rgba(55,90,127,1) 50%, rgba(78,114,152,1) 50%);
+}
+
+ul.navbar-nav {
+  display: inherit;
+  flex-direction: initial;
+}
+
+ul.navbar-nav .nav-item {
+  padding-left: 20px;
+}
+
+.container:after {
+  content: "";
+  background: url('https://i.imgur.com/9ryst5x.jpg');
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid rgb(68, 68, 68);;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+table thead {
+  background: #375a7f;
+}
+
+.list-group.squared .list-group-item:first-child,
+.list-group.squared .list-group-item:last-child,
+.list-group.squared {
+  border-radius: 0px !important;
+}
+
+.list-group.no-boarder .list-group-item:first-child,
+.list-group.no-boarder .list-group-item:last-child,
+.list-group.no-boarder .list-group-item,
+.list-group.no-boarder {
+  border: 0px !important;
+}
+
+.list-group-item {
+  background: none;
+}
+
+.list-group-item.header,
+.list-group-item.header:hover {
+  background: #375a7f;
+  font-weight: bold;
+}
+
+.list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
