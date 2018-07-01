@@ -17,4 +17,4 @@ I plan on a couple of methods:
 - Your own host
 
 # Where can I see WunCraft?
-At the moment, [Demo on StackBlitz](https://stackblitz.com/edit/wuncraft)
+At the moment, [Demo on StackBlitz](https://wuncraft.stackblitz.io)
