@@ -67,6 +67,7 @@ function register(email, username, password, callback) {
   var shasum  = crypto.createHash('sha1')
   shasum.update(`${username.toUpperCase()}:${password.toUpperCase()}`);
   var sha_pass_hash = shasum.digest('hex').toUpperCase();
+
   const sql_query = `INSERT INTO auth.account(username,sha_pass_hash,email, locked, expansion)`;
   const sql_query_values = `VALUES ('${username.toUpperCase()}', '${sha_pass_hash}', '${email}', '0', '2')`;
   db.query(`${sql_query} ${sql_query_values}`).then(data => {
@@ -129,8 +130,8 @@ function resetPassword(username, oldPassword, newPassword, callback) {
 module.exports = {
   login: login,
   getAccountInfo: getAccountInfo,
-	register: register,
-	resetPassword: resetPassword,
+  register: register,
+  resetPassword: resetPassword,
   isExistingEmail: isExistingEmail,
   isExistingUsername: isExistingUsername
 };

@@ -1,9 +1,8 @@
 var express = require('express')
     , app = express()
-    , crypto  = require('crypto')
+    , ps = require('ps-node')
     , Sequelize = require('sequelize')
-    , config = require('../config.json')
-    , shasum  = crypto.createHash('sha1');
+    , config = require('../config.json');
 
 const db = new Sequelize(
   config.database.database, 
@@ -19,25 +18,55 @@ const queryConfig = {
   type: Sequelize.QueryTypes.SELECT
 }
 
+// GET AUTH SERVER PROC
+// ==================================================
+
 function getAuthStatus(callback) {
-  
+  ps.lookup({ command: 'authserver' }, function(err, data ) {
+    callback(data, 200);
+  });
 }
+
+// GET WORLD SERVER PROC
+// ==================================================
 
 function getWorldStatus(callback) {
-  
+  ps.lookup({ command: 'worldserver' }, function(err, data ) {
+    callback(data, 200);
+  });
 }
+
+// GET REALMS
+// ==================================================
 
 function getRealms(callback) {
-  
+  const sql_query = `SELECT id, name, population, address, port FROM auth.realmlist;`;
+  db.query(sql_query, queryConfig).then(data => {
+    callback(data, 200);
+  })
+  .catch(err => {
+    callback(err, 500);
+  });
 }
 
-function getPopulationByRealm(realmId, callback) {
-  
+// GET REALM BY ID
+// ==================================================
+
+function getRealmById(realmId, callback) {
+  const sql_query = `SELECT * FROM auth.realmlist where id = '${realmId}'`;
+  db.query(sql_query, queryConfig).then(data => {
+    callback(data, 200);
+  })
+  .catch(err => {
+    callback(err, 500);
+  });
 }
+
+// ==================================================
 
 module.exports = {
   getAuthStatus: getAuthStatus,
   getWorldStatus: getWorldStatus,
   getRealms: getRealms,
-  getPopulationByRealm: getPopulationByRealm
+  getRealmById: getRealmById
 };
