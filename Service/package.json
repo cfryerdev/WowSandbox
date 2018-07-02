@@ -18,6 +18,7 @@
     "react-scripts": "1.1.4",
     "react-toastr": "^3.0.0",
     "sequelize": "^4.37.10",
+    "sqlstring": "^2.3.1",
     "styled-components": "^3.2.6",
     "video-react": "^0.10.9"
   },
