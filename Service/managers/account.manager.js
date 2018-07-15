@@ -27,7 +27,12 @@ function login(username, password, callback) {
   shasum.update(`${username.toUpperCase()}:${password.toUpperCase()}`);
   var sha_pass_hash = shasum.digest('hex').toUpperCase();
 
-  const sql_query = `SELECT id, username, email FROM auth.account WHERE username = '${username}' AND sha_pass_hash = '${sha_pass_hash}'`;
+  const sql_query = `
+    SELECT 
+      a.id, a.username, a.email, ac.gmlevel 
+    FROM auth.account a 
+      LEFT JOIN auth.account_access ac ON ac.id = a.id 
+    WHERE a.username = '${username}' AND a.sha_pass_hash = '${sha_pass_hash}' LIMIT 1`;
   db.query(sql_query, queryConfig).then(data => {
     if (data.length === 0) {
       callback("The username and password combination is not correct.", 401);
@@ -35,6 +40,7 @@ function login(username, password, callback) {
     else {
       var model = {
         id: data[0].id,
+        gmlevel: data[0].gmlevel,
         email: data[0].email,
         username: data[0].username,
         isAuthenticated: true,
@@ -51,7 +57,12 @@ function login(username, password, callback) {
 // ==================================================
 
 function getAccountInfo(id, callback) { 
-  const sql_query = `SELECT id, username, email, locked, online, expansion, joindate FROM auth.account WHERE id = '${id}'`;
+  const sql_query = `
+    SELECT 
+      a.id, a.username, a.email, a.locked, a.online, a.expansion, a.joindate, ac.gmlevel 
+    FROM auth.account a 
+      LEFT JOIN auth.account_access ac ON ac.id = a.id 
+    WHERE a.id = '${id}' LIMIT 1`;
   db.query(sql_query, queryConfig).then(data => {
     callback(data, 200);
   })
@@ -68,9 +79,10 @@ function register(email, username, password, callback) {
   shasum.update(`${username.toUpperCase()}:${password.toUpperCase()}`);
   var sha_pass_hash = shasum.digest('hex').toUpperCase();
 
-  const sql_query = `INSERT INTO auth.account(username,sha_pass_hash,email, locked, expansion)`;
-  const sql_query_values = `VALUES ('${username.toUpperCase()}', '${sha_pass_hash}', '${email}', '0', '2')`;
-  db.query(`${sql_query} ${sql_query_values}`).then(data => {
+  const sql_query = `
+    INSERT INTO auth.account (username,sha_pass_hash,email, locked, expansion)
+    VALUES ('${username.toUpperCase()}', '${sha_pass_hash}', '${email}', '0', '2')`;
+  db.query(sql_query).then(data => {
     callback(data, 200);
   })
   .catch(err => {
@@ -82,7 +94,10 @@ function register(email, username, password, callback) {
 // ==================================================
 
 function isExistingEmail(email, callback) { 
-  const sql_query = `SELECT id FROM auth.account WHERE email = '${email}'`;
+  const sql_query = `
+    SELECT id 
+    FROM auth.account 
+    WHERE email = '${email}'`;
   db.query(sql_query, queryConfig).then(data => {
     callback(data, 200);
   })
@@ -95,7 +110,10 @@ function isExistingEmail(email, callback) {
 // ==================================================
 
 function isExistingUsername(username, callback) { 
-  const sql_query = `SELECT id FROM auth.account WHERE username = '${username}'`;
+  const sql_query = `
+    SELECT id 
+    FROM auth.account 
+    WHERE username = '${username}'`;
   db.query(sql_query, queryConfig).then(data => {
     callback(data, 200);
   })
@@ -116,7 +134,11 @@ function resetPassword(username, oldPassword, newPassword, callback) {
   shasum.update(`${username.toUpperCase()}:${newPassword.toUpperCase()}`);
   var new_pass_hash = shasum.digest('hex').toUpperCase();
 
-  const sql_query = `UPDATE auth.account set v = NULL, s = NULL, sha_pass_hash = '${new_pass_hash}' WHERE username = '${username}' AND sha_pass_hash = '${old_pass_hash}'`;
+  const sql_query = `
+    UPDATE 
+      auth.account set v = NULL, s = NULL, sha_pass_hash = '${new_pass_hash}' 
+    WHERE username = '${username}' 
+      AND sha_pass_hash = '${old_pass_hash}' `;
   db.query(sql_query, queryConfig).then(data => {
     callback(data, 200);
   })

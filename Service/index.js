@@ -20,6 +20,7 @@ app.use(session({
 
 app.use('/*', cookieParser());
 app.use(require('./controllers/account.controller'));
+app.use(require('./controllers/character.controller'));
 app.use(require('./controllers/status.controller'));
 
 var server = app.listen(port, function () {

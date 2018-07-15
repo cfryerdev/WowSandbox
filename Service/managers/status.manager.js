@@ -40,7 +40,9 @@ function getWorldStatus(callback) {
 // ==================================================
 
 function getRealms(callback) {
-  const sql_query = `SELECT id, name, population, address, port FROM auth.realmlist;`;
+  const sql_query = `
+    SELECT id, name, population, address, port 
+    FROM auth.realmlist;`;
   db.query(sql_query, queryConfig).then(data => {
     callback(data, 200);
   })
@@ -53,7 +55,9 @@ function getRealms(callback) {
 // ==================================================
 
 function getRealmById(realmId, callback) {
-  const sql_query = `SELECT * FROM auth.realmlist where id = '${realmId}'`;
+  const sql_query = `
+    SELECT * 
+    FROM auth.realmlist where id = '${realmId}'`;
   db.query(sql_query, queryConfig).then(data => {
     callback(data, 200);
   })
