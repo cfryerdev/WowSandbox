@@ -135,8 +135,8 @@ function resetPassword(username, oldPassword, newPassword, callback) {
   var new_pass_hash = shasum.digest('hex').toUpperCase();
 
   const sql_query = `
-    UPDATE 
-      auth.account set v = NULL, s = NULL, sha_pass_hash = '${new_pass_hash}' 
+    UPDATE auth.account 
+    SET v = NULL, s = NULL, sha_pass_hash = '${new_pass_hash}' 
     WHERE username = '${username}' 
       AND sha_pass_hash = '${old_pass_hash}' `;
   db.query(sql_query, queryConfig).then(data => {

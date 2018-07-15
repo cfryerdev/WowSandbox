@@ -15,6 +15,12 @@ app.get('/character/:id', [authMiddleware], function (req, res) {
     });
 });
 
+app.post('/character/transfer', [authMiddleware], function (req, res) {
+    manager.transferCharacterByIdAndRealmId(req.body.accountId, req.body.realmId, function(data, code) {
+        res.status(code).send(data);
+    });
+});
+
 app.get('/character/*', [authMiddleware], function (req, res) {
     res.status(404).send('Not found.');
 });
