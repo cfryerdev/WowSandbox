@@ -27,7 +27,7 @@ function login(username, password, callback) {
   shasum.update(`${username.toUpperCase()}:${password.toUpperCase()}`);
   var sha_pass_hash = shasum.digest('hex').toUpperCase();
 
-  const sql_query = `SELECT id, username, email FROM auth.account WHERE username = '${username}' AND sha_pass_hash = '${sha_pass_hash}'`;
+  const sql_query = `SELECT a.id, a.username, a.email, ac.gmlevel FROM auth.account a LEFT JOIN auth.account_access ac ON ac.id = a.id WHERE a.username = '${username}' AND a.sha_pass_hash = '${sha_pass_hash}' LIMIT 1`;
   db.query(sql_query, queryConfig).then(data => {
     if (data.length === 0) {
       callback("The username and password combination is not correct.", 401);
@@ -35,6 +35,7 @@ function login(username, password, callback) {
     else {
       var model = {
         id: data[0].id,
+        gmlevel: data[0].gmlevel,
         email: data[0].email,
         username: data[0].username,
         isAuthenticated: true,
@@ -51,7 +52,7 @@ function login(username, password, callback) {
 // ==================================================
 
 function getAccountInfo(id, callback) { 
-  const sql_query = `SELECT id, username, email, locked, online, expansion, joindate FROM auth.account WHERE id = '${id}'`;
+  const sql_query = `SELECT a.id, a.username, a.email, a.locked, a.online, a.expansion, a.joindate, ac.gmlevel FROM auth.account a LEFT JOIN auth.account_access ac ON ac.id = a.id WHERE a.id = '${id}' LIMIT 1`;
   db.query(sql_query, queryConfig).then(data => {
     callback(data, 200);
   })
