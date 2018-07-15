@@ -52,9 +52,26 @@ function getCharacterById(realmId, callback) {
     });
 }
 
+// TRANSFER CHAR FROM ONE REALM TO ANOTHER
+// ==================================================
+
+function transferCharacterByIdAndRealmId(accountId, realmId, callback) {
+    const sql_query = `
+        UPDATE auth.realmcharacters
+        SET realmid = '${realmId}' 
+        WHERE acctid = '${accountId}' `;
+    db.query(sql_query, queryConfig).then(data => {
+        callback(data, 200);
+    })
+    .catch(err => {
+        callback(err, 500);
+    });
+}
+
 // ==================================================
 
 module.exports = {
     getCharactersByAccountId: getCharactersByAccountId,
-    getCharacterById: getCharacterById
+    getCharacterById: getCharacterById,
+    transferCharacterByIdAndRealmId: transferCharacterByIdAndRealmId
 };
