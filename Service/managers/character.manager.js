@@ -12,8 +12,6 @@ const db = new Sequelize(
     dialect: 'mysql'
 });
 
-//const Op = Sequelize.Op;
-
 const queryConfig = {
   plain: false,
   raw: false,
@@ -24,7 +22,11 @@ const queryConfig = {
 // ==================================================
 
 function getCharactersByAccountId(realmId, callback) {
-    const sql_query = `SELECT * FROM characters.characters where account = '${realmId}'`;
+    const sql_query = `
+        SELECT 
+            c.guid as id, c.name, c.level, c.race, c.class, c.gender, c.money 
+        FROM characters.characters c 
+        WHERE c.account = '${realmId}'`;
     db.query(sql_query, queryConfig).then(data => {
         callback(data, 200);
     })
@@ -37,7 +39,11 @@ function getCharactersByAccountId(realmId, callback) {
 // ==================================================
 
 function getCharacterById(realmId, callback) {
-    const sql_query = `SELECT * FROM characters.characters where id = '${realmId}'`;
+    const sql_query = `
+        SELECT 
+            c.guid as id, c.name, c.level, c.race, c.class, c.gender, c.money 
+        FROM characters.characters c 
+        WHERE c.guid = '${realmId}'`;
     db.query(sql_query, queryConfig).then(data => {
         callback(data, 200);
     })
