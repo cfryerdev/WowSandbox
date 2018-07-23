@@ -1,7 +1,9 @@
 body {
   padding: 0px;
+  background: url('https://imgur.com/SNZu0ZR.png');
 }
 
+.modal-header,
 .navbar.bg-primary {
   background: linear-gradient(0deg, rgba(55,90,127,1) 50%, rgba(78,114,152,1) 50%);
 }
@@ -13,18 +15,6 @@ ul.navbar-nav {
 
 ul.navbar-nav .nav-item {
   padding-left: 20px;
-}
-
-.container:after {
-  content: "";
-  background: url('https://i.imgur.com/9ryst5x.jpg');
-  opacity: 0.1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
 }
 
 table {

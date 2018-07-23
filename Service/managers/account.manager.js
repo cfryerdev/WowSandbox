@@ -35,7 +35,7 @@ function login(username, password, callback) {
     WHERE a.username = '${username}' AND a.sha_pass_hash = '${sha_pass_hash}' LIMIT 1`;
   db.query(sql_query, queryConfig).then(data => {
     if (data.length === 0) {
-      callback("The username and password combination is not correct.", 401);
+      callback({ message: "The username and password combination is not correct." }, 401);
     }
     else {
       var model = {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { render } from 'react-dom';
 
 export default class Form extends Component {
   constructor() {
@@ -32,7 +33,7 @@ export default class Form extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
 
-        <div class="form-group">
+        <div className="form-group">
           <label>Email address</label>
           <input type="email" className="form-control" placeholder="Enter email" 
             value={this.state.model.email} onChange={this.handleChange} />
@@ -43,7 +44,7 @@ export default class Form extends Component {
           <small className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
           <label>Account Name</label>
           <input className="form-control" placeholder="Enter account name"  
             value={this.state.model.accountName} onChange={this.handleChange} />
@@ -53,23 +54,23 @@ export default class Form extends Component {
           }
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
           <label>Password</label>
           <input type="password" className="form-control" placeholder="Enter password"
             value={this.state.model.password} onChange={this.handleChange} />
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
           <label>Confirm Password</label>
           <input type="password" className="form-control" placeholder="Confirm password"
             value={this.state.model.confirmPassword} onChange={this.handleChange} />
         </div>
 
-        <div class="form-group" style={{ marginTop: 40 }}>
+        <div className="form-group" style={{ marginTop: 40 }}>
           <button type="submit" className="btn btn-primary">Register</button>   
         </div>
 
-        <div class="alert alert-info">
+        <div className="alert alert-info">
           <strong>Reminder:</strong> Set your realmlist to 127.0.0.1<br />
           <strong>Location:</strong> [~\World of Warcraft\WTF\Config.wtf]
         </div>

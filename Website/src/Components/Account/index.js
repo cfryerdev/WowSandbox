@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { NavLink }  from 'react-router-dom';
 
 import ActivityGraph from './ActivityGraph';
 
@@ -11,22 +12,22 @@ export default () =>
     </h3>
     <ul className="list-group list-group-flush">
       <li className="list-group-item">
-        Name: <span className="text-muted"> SomeAccountName</span>
+        Name: <span className="text-muted float-right"> SomeAccountName</span>
       </li>
       <li className="list-group-item">
-        Email: <span className="text-muted"> test@email.com</span>
+        Email: <span className="text-muted float-right"> test@email.com</span>
       </li>
       <li className="list-group-item">
-        Level: <span className="text-muted"> GM 4 </span>
+        Level: <span className="text-muted float-right"> GM 4 </span>
       </li>
       <li className="list-group-item">
-        Status: <span className="text-muted"> Active </span>
+        Status: <span className="text-muted float-right"> Active </span>
       </li>
     </ul>
     <div className="card-body">
-      <a href="" className="card-link">Modify</a>
-      <a href="" className="card-link">Characters</a>
-      <a href="" className="card-link">Administration</a>
+      <a href="#" className="card-link">Modify</a>
+      <NavLink to="/account/characters" className="card-link">Characters</NavLink>
+      <NavLink to="/administration" className="card-link">Administration</NavLink>
     </div>
     <div className="card-footer text-muted">
       Join Date: <span className="text-muted">  1/17/2017</span>

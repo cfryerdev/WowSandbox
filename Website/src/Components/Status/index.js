@@ -18,7 +18,7 @@ export default class Timeline extends React.Component {
       <Fragment>
 
         <h4 style={{ marginBottom: 20, paddingBottom: 10, borderBottom: '1px solid #777' }}>
-          Check the status of WunCraft
+          Check the status of WowSandbox
         </h4>
 
         <FetchContainer 

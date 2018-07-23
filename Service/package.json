@@ -1,11 +1,12 @@
 {
-  "name": "wuncraft-service",
+  "name": "wowsandbox-service",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.3",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
     "crypto": "^1.0.1",
     "errorhandler": "^1.5.0",
     "express": "^4.16.3",

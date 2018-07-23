@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import { render } from 'react-dom';
 
 export default class RealmsList extends Component {
 
@@ -12,7 +13,7 @@ export default class RealmsList extends Component {
   render() {
     return (
       <Fragment>
-        <table class="table table-hover">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th style={{ width: 40 }}>Status</th>
@@ -28,14 +29,14 @@ export default class RealmsList extends Component {
               : null
             }
             {
-              this.props.data.map(function (realm) {
+              this.props.data.map(function (realm, index) {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td className="text-center">
                       { 
                         realm.isOnline 
-                        ? <i class="fas fa-check-circle text-success"></i>
-                        : <i class="fas fa-times-circle text-danger"></i>
+                        ? <i className="fas fa-check-circle text-success"></i>
+                        : <i className="fas fa-times-circle text-danger"></i>
                       }
                     </td>
                     <td>

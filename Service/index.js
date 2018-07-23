@@ -1,11 +1,14 @@
 var express = require('express')
     , app = express()
+    , cors = require('cors')
     , session = require('express-session')
     , bodyParser = require('body-parser')
     , cookieParser = require('cookie-parser')
     , config = require('./config.json');
 
 const port = process.env.PORT ? process.env.PORT : config.service.port;
+
+app.use(cors({ credentials: true, origin: `http://localhost:3000` }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

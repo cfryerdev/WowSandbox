@@ -3,7 +3,7 @@ var express = require('express')
 
 app.use(function(req, res, next) {
     if (req.session.user === undefined || req.session.user == null) {
-        res.status(403).send('You need to be logged in to access this resource.');
+        res.status(403).send({ message: 'You need to be logged in to access this resource.' });
     }
     next();
 });

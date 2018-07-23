@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../config.json';
 
 export default class FetchContainer extends React.Component {
 

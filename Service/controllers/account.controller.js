@@ -14,7 +14,7 @@ app.post('/account/login', function (req, res) {
 
 app.get('/account/logout', function (req, res) {
     req.session.destroy();
-    res.status(200).send('Logged out successfully');
+    res.status(200).send({ message: 'Logged out successfully'});
 });
 
 app.get('/account/status', function (req, res) {
