@@ -1,32 +1,16 @@
 var express = require('express')
-    , app = express()
-    , crypto  = require('crypto')
-    , Sequelize = require('sequelize')
-    , SqlString = require('sqlstring')
-    , config = require('../config.json');
+  , Sequelize = require('sequelize')
+  , passwordUtility = require('../utilities/password.utility')
+  , databaseUtility = require('../utilities/database.utility');
 
-const db = new Sequelize(
-  config.database.database, 
-  config.database.username, 
-  config.database.password, {
-    host: config.database.host,
-    dialect: 'mysql'
-});
-
-const queryConfig = {
-  plain: false,
-  raw: false,
-  type: Sequelize.QueryTypes.SELECT
-}
+const db = databaseUtility.createConfig();
+const queryConfig = databaseUtility.createSelectQueryConfig();
 
 // LOGIN
 // ==================================================
 
-function login(username, password, callback) { 
-  var shasum  = crypto.createHash('sha1')
-  shasum.update(`${username.toUpperCase()}:${password.toUpperCase()}`);
-  var sha_pass_hash = shasum.digest('hex').toUpperCase();
-
+function login(username, password, callback) {
+  var sha_pass_hash = passwordUtility.createHash(username, password);
   const sql_query = `
     SELECT 
       a.id, a.username, a.email, ac.gmlevel 
@@ -75,10 +59,7 @@ function getAccountInfo(id, callback) {
 // ==================================================
 
 function register(email, username, password, callback) {
-  var shasum  = crypto.createHash('sha1')
-  shasum.update(`${username.toUpperCase()}:${password.toUpperCase()}`);
-  var sha_pass_hash = shasum.digest('hex').toUpperCase();
-
+  var sha_pass_hash = passwordUtility.createHash(username, password);
   const sql_query = `
     INSERT INTO auth.account (username,sha_pass_hash,email, locked, expansion)
     VALUES ('${username.toUpperCase()}', '${sha_pass_hash}', '${email}', '0', '2')`;
@@ -126,14 +107,8 @@ function isExistingUsername(username, callback) {
 // ==================================================
 
 function resetPassword(username, oldPassword, newPassword, callback) { 
-  var shasum  = crypto.createHash('sha1')
-  shasum.update(`${username.toUpperCase()}:${oldPassword.toUpperCase()}`);
-  var old_pass_hash = shasum.digest('hex').toUpperCase();
-  
-  var shasum  = crypto.createHash('sha1')
-  shasum.update(`${username.toUpperCase()}:${newPassword.toUpperCase()}`);
-  var new_pass_hash = shasum.digest('hex').toUpperCase();
-
+  var old_pass_hash = passwordUtility.createHash(username, oldPassword);
+  var new_pass_hash = passwordUtility.createHash(username, password);
   const sql_query = `
     UPDATE auth.account 
     SET v = NULL, s = NULL, sha_pass_hash = '${new_pass_hash}' 

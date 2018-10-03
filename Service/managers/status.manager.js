@@ -1,22 +1,10 @@
 var express = require('express')
-    , app = express()
-    , ps = require('ps-node')
-    , Sequelize = require('sequelize')
-    , config = require('../config.json');
+  , Sequelize = require('sequelize')
+  , ps = require('ps-node')
+  , databaseUtility = require('../utilities/database.utility');
 
-const db = new Sequelize(
-  config.database.database, 
-  config.database.username, 
-  config.database.password, {
-    host: config.database.host,
-    dialect: 'mysql'
-});
-
-const queryConfig = {
-  plain: false,
-  raw: false,
-  type: Sequelize.QueryTypes.SELECT
-}
+const db = databaseUtility.createConfig();
+const queryConfig = databaseUtility.createSelectQueryConfig();
 
 // GET AUTH SERVER PROC
 // ==================================================
