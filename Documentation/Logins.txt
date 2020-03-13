@@ -1,0 +1,8 @@
+Game:
+Username: admins
+Password: admins
+
+Database:
+Host: localhost
+Username: root
+Password: ascent

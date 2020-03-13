@@ -1,0 +1,28 @@
+{
+  "name": "wowsandbox",
+  "version": "0.1.0",
+  "description": "A World of Warcraft Private Website + Server for 3.3.5a",
+  "dependencies": {},
+  "scripts": {
+    "setup": "npm i && npm run install-frontend",
+    "start": "echo \"Please select a task to run from package.json, did you mean `npm run start-all` or `npm run setup` ?\" ",
+    "start-all": "npm-run-all --parallel start-sql start-auth start-world start-frontend",
+    "start-services": "npm-run-all --parallel start-sql start-auth start-world",
+    "start-sql": "start \"\" /d \"Database\" mysql\\bin\\mysqld --defaults-file=mysql\\bin\\my.cnf --standalone --console",
+    "start-auth": "npm run delay & start \"\" /d \"Services\" authserver.exe ",
+    "start-world": "npm run delay & start \"\" /d \"Services\" worldserver.exe  ",
+    "start-frontend": "npm run install-frontend && npm-run-all --parallel start-api start-website",
+    "start-api": "npm start --prefix Frontend/Api/",
+    "start-website": "npm start --prefix Frontend/Website/",
+    "install-frontend": "npm-run-all --parallel install-api install-website",
+    "install-api": "cd Frontend/Api/ && npm i",
+    "install-website": "cd Frontend/Website/ && npm i",
+    "delay": "node ./node_modules/npm-delay 5000"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-delay": "^1.0.4",
+    "npm-run-all": "^4.1.3"
+  }
+}
