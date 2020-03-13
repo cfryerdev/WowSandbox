@@ -4,7 +4,7 @@ WowSandbox is a total frontend replacement for WoW Private Servers using the Tri
 # Why are you building this?
 Eh, seemed fun and a good challenge. Also, I dont really have an opinion on private servers.
 
-# Where can I track progress on WunCraft?
+# Where can I track progress on WowSandbox?
 You can track progress on my GitHub project board: [Board](https://github.com/cfryerdev/WowSandbox/projects/1)
 
 # When will it be done?
@@ -16,5 +16,5 @@ I plan on a couple of methods:
 - Heroku
 - Your own host
 
-# Where can I see WunCraft?
+# Where can I see WowSandbox?
 At the moment, [Demo on StackBlitz](https://WowSandbox.stackblitz.io)
