@@ -1,22 +1,42 @@
 {
-  "name": "wuncraft-website",
-  "description": "",
-  "homepage": "",
-  "dependencies": {
-    "react": "16.4.1",
-    "react-dom": "16.4.1",
-    "react-scripts": "1.0.10",
-    "chart.js": "2.7.1",
-    "react-router": "4.3.1",
-    "react-chartjs-2": "2.6.4",
-    "react-router-dom": "4.3.1"
-  },
+  "name": "wuncraft-service",
   "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "crypto": "^1.0.1",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "mysql2": "^1.5.3",
+    "ps-node": "^0.1.6",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "react-toastr": "^3.0.0",
+    "sequelize": "^4.37.10",
+    "sqlstring": "^2.3.1",
+    "styled-components": "^3.2.6",
+    "video-react": "^0.10.9"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "node index.js",
+    "install": "",
+    "postinstall": ""
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-watch": "^5.0.0"
+  },
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
   }
 }
