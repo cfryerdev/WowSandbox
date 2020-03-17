@@ -1,0 +1,25 @@
+TrinityCore rev. d4184065b6d5 2016-02-20 03:20:43 +0100 (3.3.5 branch) (Win64, Release) (authserver)
+<Ctrl-C> to stop.
+
+Using configuration file authserver.conf.
+Using SSL version: OpenSSL 1.0.2f  28 Jan 2016 (library: OpenSSL 1.0.2a 19 Mar 2015)
+Using Boost version: 1.59.0
+Automatic database updates are disabled for all databases!
+Opening DatabasePool 'auth'. Asynchronous connections: 1, synchronous connections: 1.
+MySQL client library: 5.5.38
+MySQL server ver: 5.5.9-log 
+Connected to MySQL database at 127.0.0.1
+MySQL client library: 5.5.38
+MySQL server ver: 5.5.9-log 
+Connected to MySQL database at 127.0.0.1
+DatabasePool 'auth' opened successfully. 2 total connections running.
+Started auth database connection pool.
+Updating Realm List...
+Added realm "WoWSandbox" at 127.0.0.1:8085.
+Updating Realm List...
+Updating Realm List...
+Updating Realm List...
+Updating Realm List...
+Ping MySQL to keep connection alive
+Ping MySQL to keep connection alive
+Ping MySQL to keep connection alive

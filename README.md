@@ -8,6 +8,12 @@ To setup the stack, you need a few groups of files
 * WoW 3.3.5a Database Scripts -> `\Database\mysql\data`
 * WoW 3.3.5a Maps (dbc, maps, vmaps, mmaps) -> `\Services\data`
 
+# Patching your client
+* Navigate to `~/Data/enUS` inside your WoW Client folder.
+* Open `realmlist.wtf`
+* Add or update: `set realmlist 127.0.0.1`
+* Add or update: `set patchlist 127.0.0.1`
+
 Once you have all the files, to run the stack, you must execute two npm commands.
 * npm run setup
 * npm start
