@@ -25,4 +25,10 @@ app.get('/character/*', [authMiddleware], function (req, res) {
     res.status(404).send('Not found.');
 });
 
+/**
+ * @swagger
+ * tags:
+ *   - name: Character
+ *     description: Character endpoints
+ */
 module.exports = app;

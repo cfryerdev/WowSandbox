@@ -1,28 +1,21 @@
-var express = require('express')
-    , app = express()
-    , session = require('express-session')
-    , bodyParser = require('body-parser')
-    , cookieParser = require('cookie-parser')
-    , config = require('./config.json');
+var express = require("express"),
+    app = express();
 
-const port = process.env.PORT ? process.env.PORT : config.service.port;
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").load();
+}
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+require("colors");
 
-app.set('trust proxy', 1)
-app.use(session({
-  secret: config.service.secret,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}));
-
-app.use('/*', cookieParser());
-app.use(require('./controllers/account.controller'));
-app.use(require('./controllers/character.controller'));
-app.use(require('./controllers/status.controller'));
-
-var server = app.listen(port, function () {
-    console.log(`Api:   http://localhost:${port}/`);
-});
+require("./config/express.config")(app)
+    .then(require("./config/swagger.config"))
+    .then(require("./config/logging.config"))
+    .then(require("./config/auth.config"))
+    .then(require("./config/controllers.config"))
+    .then(require("./config/database.config"))
+    .then(require("./config/error.config"))
+    .then(() =>
+        app.listen(process.env.PORT, () => {
+            console.log(`>> Service is running on port ${process.env.PORT}.`);
+        })
+    );

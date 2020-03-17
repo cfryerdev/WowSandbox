@@ -30,4 +30,10 @@ app.get('/status/*', function (req, res) {
     res.status(404).send('Not found.');
 });
 
+/**
+ * @swagger
+ * tags:
+ *   - name: Status
+ *     description: System status endpoints
+ */
 module.exports = app;

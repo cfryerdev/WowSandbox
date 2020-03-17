@@ -1,0 +1,21 @@
+.swagger-ui .topbar {
+    background-color: #0887c8;
+}
+
+.swagger-ui .topbar .download-url-wrapper input[type=text] {
+    border: 2px solid #056495;
+}
+
+.swagger-ui .topbar .download-url-wrapper .download-url-button {
+    background: #056495;
+}
+
+.opblock-summary-description {
+    text-align: right;
+    padding-right: 5px;
+    color: #777;
+}
+
+.opblock-tag-section small div.markdown {
+    color: #a7a7a7;
+}

@@ -55,4 +55,10 @@ app.get('/account/*', [authMiddleware], function (req, res) {
     res.status(404).send('Not found.');
 });
 
+/**
+ * @swagger
+ * tags:
+ *   - name: Account
+ *     description: Account endpoints
+ */
 module.exports = app;

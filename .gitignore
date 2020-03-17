@@ -20,3 +20,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# WoW files
+/Database/mysql/bin/*
+/Database/mysql/data/*
+/Services/data/dbc/*
+/Services/data/maps/*
+/Services/data/mmaps/*
+/Services/data/vmaps/*
+/Services/data/logs/*
