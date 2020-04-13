@@ -1,0 +1,108 @@
+[
+    { 
+        "name": "Addon Control Panel", 
+        "description": "It allows you to manage your addons in game, with an interface which looks similar to the blizzard addon manager.", 
+        "file": "AddonControlPanel-3.3.5.zip"
+    },
+    { 
+        "name": "Armory", 
+        "description": "All armory information as (once) seen on the official site from Blizzard Entertainment, in game, for all your characters, on all realms.", 
+        "file": "Armory-3.3.5.zip"
+    },
+    { 
+        "name": "Auctioneer", 
+        "description": "A suite that provides you with the tools and data necessary to make those difficult auctioning decisions with ease.", 
+        "file": "AuctioneerSuite-3.3.5.zip",
+        "isRecommended": false
+    },
+    { 
+        "name": "Auto Repair", 
+        "description": "Automaticaly repairs all your items when you visit a vendor with repair ability.", 
+        "file": "AutoRepair-3.3.5.zip",
+        "isRecommended": false
+    },
+    { 
+        "name": "Bagnon", 
+        "description": "Bagnon merges all of your bags into three windows: inventory, bank and guild bank.", 
+        "file": "Bagnon-3.3.5.zip",
+        "isRecommended": false
+    },
+    { 
+        "name": "Deadly Boss Mods", 
+        "description": "Useful in a way that it alerts you on when a Boss begins to cast certain spells or use certain skills, so that you know when to move, counter, stop damage, run away, etc.", 
+        "file": "DBM-3.3.5.zip",
+        "isRecommended": true
+    },
+    { 
+        "name": "Fishing Buddy", 
+        "description": "Keeps track of the fish you catch and helps manage your fishing gear.", 
+        "file": "FishingBuddy-3.3.5.zip",
+        "isRecommended": false
+    },
+    { 
+        "name": "Gear Score", 
+        "description": "Addon that allows you to see Gearscore", 
+        "file": "GearScore-3.3.5.zip",
+        "isRecommended": true
+    },
+    { 
+        "name": "Grid", 
+        "description": "A party/raid unit frame addon. A compact grid of units lets you select a group member quickly, while retaining a good overview of the whole group.", 
+        "file": "Grid-3.3.5.zip",
+        "isRecommended": true
+    },
+    { 
+        "name": "GTFO", 
+        "description": "Provides an audible alert when you're standing in something you're not supposed to be standing in.", 
+        "file": "GTFO-3.3.5.zip",
+        "isRecommended": true
+    },
+    { 
+        "name": "Postal", 
+        "description": "Offers enhanced mailbox support.", 
+        "file": "Postal-3.3.5.zip",
+        "isRecommended": false
+    },
+    { 
+        "name": "Quest Helper", 
+        "description": "Questhelper tells you how to finish your quests in the easiest, fastest manner. It includes a database of quests, monsters, and items, telling you the exact location of that dang Perfect Satyr Horn you can't find. It also computes the fastest path to complete all your quests - and gain experience - as quickly as possible.", 
+        "file": "QuestHelper-3.3.5.zip",
+        "isRecommended": true
+    },
+    { 
+        "name": "Raid Roll", 
+        "description": "Can be used to perform a raid roll. A raid roll lists all players with an ID beside their name. Then it performs a roll and announces who the winner is (based on the ID)", 
+        "file": "RaidRoll-3.3.5.zip",
+        "isRecommended": false
+    },
+    { 
+        "name": "Recount", 
+        "description": "Allows you to view many statistics about your Party / Raid Group such as Overall Healing, Damage and DPS in a detailed fashion.", 
+        "file": "Recount-3.3.5.zip",
+        "isRecommended": true
+    },
+    { 
+        "name": "Sell-O-Matic", 
+        "description": "As simple as going near a merchant and opening their trade window, then you can click on the sell button (money icon). By default it will sell all gray items and use no sell or save list.", 
+        "file": "SellOMatic-3.3.5.zip",
+        "isRecommended": false
+    },
+    { 
+        "name": "Titan Panel", 
+        "description": "Adds one or two information bars on the top and/or bottom of the screen and allows a framework for extensive plugin support.", 
+        "file": "TitanPanel-3.3.5.zip",
+        "isRecommended": true
+    },
+    { 
+        "name": "Wow Instant Messenger", 
+        "description": "WIM helps you to manage your whispers by making them into a classic instant messenger interface such as AIM, Yahoo and MSN.", 
+        "file": "WIM-3.3.5.zip",
+        "isRecommended": false
+    },
+    { 
+        "name": "XLoot", 
+        "description": "Providing a large array of options to change how loot is presented, as well as allowing you to use Masque or ButtonFacade Skins, XLoot's job is to make looting more functional while still having a better form.", 
+        "file": "XLoot-3.3.5.zip",
+        "isRecommended": false
+    }
+  ]

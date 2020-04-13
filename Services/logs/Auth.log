@@ -16,10 +16,16 @@ DatabasePool 'auth' opened successfully. 2 total connections running.
 Started auth database connection pool.
 Updating Realm List...
 Added realm "WoWSandbox" at 127.0.0.1:8085.
+Ping MySQL to keep connection alive
+Ping MySQL to keep connection alive
 Updating Realm List...
 Updating Realm List...
+Ping MySQL to keep connection alive
 Updating Realm List...
-Updating Realm List...
+Ping MySQL to keep connection alive
+Ping MySQL to keep connection alive
+Ping MySQL to keep connection alive
+Ping MySQL to keep connection alive
 Ping MySQL to keep connection alive
 Ping MySQL to keep connection alive
 Ping MySQL to keep connection alive

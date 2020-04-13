@@ -1,5 +1,6 @@
 body {
   padding: 0px;
+  background: url('https://imgur.com/SNZu0ZR.png');
 }
 
 .navbar.bg-primary {
@@ -17,7 +18,6 @@ ul.navbar-nav .nav-item {
 
 .container:after {
   content: "";
-  background: url('https://i.imgur.com/9ryst5x.jpg');
   opacity: 0.1;
   top: 0;
   left: 0;

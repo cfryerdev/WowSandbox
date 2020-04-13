@@ -1,7 +1,8 @@
 var bodyParser = require("body-parser"),
     session = require('express-session')
     cookieParser = require("cookie-parser"),
-    config = require('./config.json');
+    cors = require('cors')
+    config = require('../config.json');
 
 module.exports = app =>
     new Promise((resolve, reject) => {
@@ -13,6 +14,8 @@ module.exports = app =>
             app.use(bodyParser.json());
 
             app.use("/*", cookieParser());
+
+            app.use(cors());
 
             app.use(session({
                 secret: config.service.secret,

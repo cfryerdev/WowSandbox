@@ -29,7 +29,7 @@ function login(username, password, callback) {
 
   const sql_query = `
     SELECT 
-      a.id, a.username, a.email, ac.gmlevel 
+      a.id, a.username, a.email, ac.gmlevel, a.last_login, a.online
     FROM auth.account a 
       LEFT JOIN auth.account_access ac ON ac.id = a.id 
     WHERE a.username = '${username}' AND a.sha_pass_hash = '${sha_pass_hash}' LIMIT 1`;
@@ -43,6 +43,8 @@ function login(username, password, callback) {
         gmlevel: data[0].gmlevel,
         email: data[0].email,
         username: data[0].username,
+        last_login: data[0].last_login,
+        online: data[0].online,
         isAuthenticated: true,
       };
       callback(model, 200);

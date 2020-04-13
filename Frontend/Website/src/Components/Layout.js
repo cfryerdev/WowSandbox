@@ -6,7 +6,7 @@ export default ({ children }) =>
 <Fragment >
 	<Navigation />
   <div className="text-center">
-    <img alt="" src="https://i.imgur.com/hetEZqu.png" 
+    <img alt="" src="https://i.imgur.com/H5CXLIb.png" 
       style={{ maxWidth: 250, paddingTop: 20, paddingBottom: 20 }} />
   </div>
 	<div className="container">

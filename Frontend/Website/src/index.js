@@ -1,28 +1,43 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { AccountProvider } from "./Contexts/AccountContext";
 import Layout from './Components/Layout';
-import Routes from './routes';
 
 import './Content/bootstrap.css';
 import './Content/bootstrap.site.css';
 
+import Home from './Components/Home';
+import Register from './Components/Register';
+import Status from './Components/Status';
+import Account from './Components/Account';
+import Login from './Components/Login';
+import Addons from './Components/Addons';
+
+const NotFound = () => (
+	<div className="text-center">
+	  Oops what you are looking for, does not exist.
+	</div>
+  );
+
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    };
-  }
-
   render() {
     return (
-				<BrowserRouter>
-					<Layout>
-						<Routes />
-					</Layout>
-				</BrowserRouter>
+		<BrowserRouter>
+			<AccountProvider>
+				<Layout>
+					<Switch>
+						<Route path='/' exact component={Home} />
+						<Route path='/login' exact component={Login} />
+						<Route path='/register' exact component={Register} />
+						<Route path='/status' exact component={Status} />
+						<Route path='/account' exact component={Account} />
+						<Route path='/addons' exact component={Addons} />
+						<Route path='*' exact component={NotFound} />
+					</Switch>
+				</Layout>
+			</AccountProvider>
+		</BrowserRouter>
     );
   }
 }

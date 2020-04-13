@@ -16,16 +16,16 @@ export default class Form extends Component {
 
   handleSubmit = (e) => {
     console.log(this.state.model);
-    // fetch('http://localhost:81/register', {
-    //   method: 'POST',
-    //   body: JSON.stringify(this.state.model)
-    // })
-    // .then(function(response) {
-    //   return response.json();
-    // })
-    // .then(function(data) {
+    fetch('http://localhost:81/register', {
+      method: 'POST',
+      body: JSON.stringify(this.state.model)
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
 
-    // });
+    });
   }
 
   render() {
@@ -59,21 +59,14 @@ export default class Form extends Component {
             value={this.state.model.password} onChange={this.handleChange} />
         </div>
 
-        <div class="form-group">
-          <label>Confirm Password</label>
-          <input type="password" className="form-control" placeholder="Confirm password"
-            value={this.state.model.confirmPassword} onChange={this.handleChange} />
-        </div>
-
         <div class="form-group" style={{ marginTop: 40 }}>
           <button type="submit" className="btn btn-primary">Register</button>   
         </div>
 
         <div class="alert alert-info">
           <strong>Reminder:</strong> Set your realmlist to 127.0.0.1<br />
-          <strong>Location:</strong> [~\World of Warcraft\WTF\Config.wtf]
+          <strong>Location:</strong> [~\World of Warcraft\Data\enUS\realmlist.wtf]
         </div>
-
       </form>
     );
   }

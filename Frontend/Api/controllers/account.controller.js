@@ -4,6 +4,7 @@ var express = require('express')
 , manager = require('../managers/account.manager');
 
 app.post('/account/login', function (req, res) {
+    console.log(req.body);
     manager.login(req.body.username, req.body.password, function(data, code) {
         if (code == 200) {
             req.session.user = data;
@@ -39,7 +40,29 @@ app.get('/account/checkusername/:name', [authMiddleware], function (req, res) {
     });
 });
 
-app.post('/account/register', [authMiddleware], function (req, res) {
+
+/**
+ * @swagger
+ * 
+ * /account/register:
+ *    post:
+ *      tags:
+ *        - Account
+ *      summary: Register for an account.
+ *      produces:
+ *          - application/json
+ *      parameters:
+ *          - name: RegisterRequest
+ *            description: Register Request
+ *            in: body
+ *            required: true
+ *            schema:
+ *              $ref: '#/definitions/RegisterRequest'
+ *      responses:
+ *          200:
+ *              description: The service is in a healthy state
+ */
+app.post('/account/register', function (req, res) {
     manager.register(req.body.email, req.body.username, req.body.password, function(data, code) {
         res.status(code).send(data);
     });

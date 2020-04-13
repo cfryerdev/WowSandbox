@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom'
 import { AccountConsumer } from '../../Contexts/AccountContext';
 
-export default () => {
+const Login = ({ props }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  handleLogin = () => {
-
-  }
 
   return  (
     <AccountConsumer>
@@ -21,21 +18,28 @@ export default () => {
                 return <div key={i} className="alert alert-warning">{err}</div>
               })
             }
-            <div class="form-group">
+            <div className="form-group">
               <label>Account Name</label>
-              <input className="form-control" placeholder="Enter account name" onChange={setUsername} />
+              <input className="form-control" placeholder="Enter account name" onChange={(e)=>setUsername(e.target.value)} />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Password</label>
-              <input type="password" className="form-control" placeholder="Enter password" onChange={this.setPassword} />
+              <input type="password" className="form-control" placeholder="Enter password" onChange={(e)=>setPassword(e.target.value)} />
             </div>
-            <div class="form-group" style={{ marginTop: 40 }}>
-              <button onClick={handleLogin} className="btn btn-primary">
+            <div className="form-group" style={{ marginTop: 40 }}>
+              <button className="btn btn-primary" 
+                onClick={() => {
+                  login(username, password, () => {
+                    window.location.href = '/account';
+                  });
+                }}>
                 Sign In
               </button> 
             </div>
           </div>
         )}
     </AccountConsumer>
-  )
-}
+  );
+};
+
+export default withRouter(Login);
