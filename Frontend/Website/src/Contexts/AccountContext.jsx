@@ -43,7 +43,6 @@ class AccountProvider extends Component {
       })
       .then(response => response.json())
       .then(result => {
-        console.log(result);
         this.setState({ isLoggedIn: true, user: result }, () =>{
           this.setSession(result);
           successCallback();
@@ -55,31 +54,28 @@ class AccountProvider extends Component {
       });
   };
 
-  logout = _ => {
-    
+  logout = (successCallback) => {
+    this.setState({ isLoggedIn: false, user: {} }, () => {
+      sessionStorage.removeItem('userSession');
+      successCallback();
+    });
   };
 
-  register = (email, accountName, password) => {
+  register = (email, username, password, successCallback) => {
     fetch(`${WS_BASE_URL}/account/register`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email, accountName, password })
+      body: JSON.stringify({ email, username, password })
     })
-    .then(response => { 
-      return { status: 
-        response.status, data: response.json() };
-     })
+    .then(response => response.json())
     .then(result => {
-      if (result.status === 200) {
-        return this.login(accountName, password);
-      }
+      return this.login(username, password, successCallback);
     })
     .catch(error => {
       console.error(error);
       this.addError(error);
-      return false;
     });
   };
 
@@ -126,6 +122,8 @@ class AccountProvider extends Component {
           isLoggedIn: this.state.isLoggedIn,
           user: this.state.user,
           login: this.login,
+          register: this.register,
+          logout: this.logout,
           logout: this.logout,
           errors: this.state.errors
         }}

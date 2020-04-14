@@ -30,7 +30,14 @@ export default () =>
               Status: <span className="text-muted"> { user.online > 0 ? "✔️ Online" : "✖️ Offline" } </span>
             </li>
             <li className="list-group-item">
-              Last Login: <span className="text-muted"> <Moment format="MMM Do YYYY @ h:mm a">{user.last_login}</Moment> </span>
+              Last Login: 
+              <span className="text-muted"> &nbsp;
+              { 
+                user.last_login != null ?
+                  <Moment format="MMM Do YYYY @ h:mm a">{user.last_login}</Moment>
+                : "Has not logged in." 
+              }
+              </span>
             </li>
           </ul>
           <div className="card-body">

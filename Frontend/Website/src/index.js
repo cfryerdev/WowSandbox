@@ -12,6 +12,7 @@ import Register from './Components/Register';
 import Status from './Components/Status';
 import Account from './Components/Account';
 import Login from './Components/Login';
+import Logout from './Components/Logout';
 import Addons from './Components/Addons';
 
 const NotFound = () => (
@@ -29,6 +30,7 @@ class App extends Component {
 					<Switch>
 						<Route path='/' exact component={Home} />
 						<Route path='/login' exact component={Login} />
+						<Route path='/logout' exact component={Logout} />
 						<Route path='/register' exact component={Register} />
 						<Route path='/status' exact component={Status} />
 						<Route path='/account' exact component={Account} />

@@ -19,6 +19,11 @@ export default () =>
               </li>
             }
             { 
+              isLoggedIn && <li className="nav-item">
+                <NavLink className="nav-link" to="/logout">Logout</NavLink>
+              </li>
+            }
+            { 
               !isLoggedIn && <li className="nav-item">
                 <NavLink className="nav-link" to="/register">Register</NavLink>
               </li>
