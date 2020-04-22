@@ -11,4 +11,4 @@ class IpRequest {
         this.ip = "";
     }
 }
-module.exports = Sample;
+module.exports = IpRequest;

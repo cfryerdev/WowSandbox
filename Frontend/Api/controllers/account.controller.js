@@ -4,7 +4,6 @@ var express = require('express')
 , manager = require('../managers/account.manager');
 
 app.post('/account/login', function (req, res) {
-    console.log(req.body);
     manager.login(req.body.username, req.body.password, function(data, code) {
         if (code == 200) {
             req.session.user = data;

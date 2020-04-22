@@ -1,31 +1,32 @@
-TrinityCore rev. d4184065b6d5 2016-02-20 03:20:43 +0100 (3.3.5 branch) (Win64, Release) (authserver)
+TrinityCore rev. Naaru v1.7 2020-01-21 23:00:00 (Win64, Release, Static) (authserver)
 <Ctrl-C> to stop.
 
-Using configuration file authserver.conf.
-Using SSL version: OpenSSL 1.0.2f  28 Jan 2016 (library: OpenSSL 1.0.2a 19 Mar 2015)
-Using Boost version: 1.59.0
-Automatic database updates are disabled for all databases!
+ ______                       __
+/\__  _\       __          __/\ \__
+\/_/\ \/ _ __ /\_\    ___ /\_\ \, _\  __  __
+   \ \ \/\`'__\/\ \ /' _ `\/\ \ \ \/ /\ \/\ \
+    \ \ \ \ \/ \ \ \/\ \/\ \ \ \ \ \_\ \ \_\ \
+     \ \_\ \_\  \ \_\ \_\ \_\ \_\ \__\\/`____ \
+      \/_/\/_/   \/_/\/_/\/_/\/_/\/__/ `/___/> \
+                                 C O R E  /\___/
+http://TrinityCore.org                    \/__/
+
+Using configuration file E:/GIT/WowSandbox/Services/authserver.conf.
+Using SSL version: OpenSSL 1.1.0b  26 Sep 2016 (library: OpenSSL 1.1.0j  20 Nov 2018)
+Using Boost version: 1.66.0
+Daemon PID: 13664
+
 Opening DatabasePool 'auth'. Asynchronous connections: 1, synchronous connections: 1.
-MySQL client library: 5.5.38
-MySQL server ver: 5.5.9-log 
+MySQL client library: 5.6.28
+MySQL server ver: 5.6.28 
 Connected to MySQL database at 127.0.0.1
-MySQL client library: 5.5.38
-MySQL server ver: 5.5.9-log 
+MySQL client library: 5.6.28
+MySQL server ver: 5.6.28 
 Connected to MySQL database at 127.0.0.1
 DatabasePool 'auth' opened successfully. 2 total connections running.
+Updating Auth database...
+>> Auth database is up-to-date! Containing 1 new and 61 archived updates.
 Started auth database connection pool.
-Updating Realm List...
+Loading IP Location Database...
 Added realm "WoWSandbox" at 127.0.0.1:8085.
-Ping MySQL to keep connection alive
-Ping MySQL to keep connection alive
-Updating Realm List...
-Updating Realm List...
-Ping MySQL to keep connection alive
-Updating Realm List...
-Ping MySQL to keep connection alive
-Ping MySQL to keep connection alive
-Ping MySQL to keep connection alive
-Ping MySQL to keep connection alive
-Ping MySQL to keep connection alive
-Ping MySQL to keep connection alive
-Ping MySQL to keep connection alive
+Process priority class set to HIGH

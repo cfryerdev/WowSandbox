@@ -14,10 +14,13 @@ import Account from './Components/Account';
 import Login from './Components/Login';
 import Logout from './Components/Logout';
 import Addons from './Components/Addons';
+import Characters from './Components/Characters';
+import AccountEdit from './Components/AccountEdit';
+import Administration from './Components/Administration';
 
 const NotFound = () => (
 	<div className="text-center">
-	  Oops what you are looking for, does not exist.
+	  Oops, what you are looking for, does not exist.
 	</div>
   );
 
@@ -34,6 +37,9 @@ class App extends Component {
 						<Route path='/register' exact component={Register} />
 						<Route path='/status' exact component={Status} />
 						<Route path='/account' exact component={Account} />
+						<Route path='/account/edit' exact component={AccountEdit} />
+						<Route path='/account/characters' exact component={Characters} />
+						<Route path='/account/administration' exact component={Administration} />
 						<Route path='/addons' exact component={Addons} />
 						<Route path='*' exact component={NotFound} />
 					</Switch>

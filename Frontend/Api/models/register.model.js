@@ -16,4 +16,4 @@ class RegisterRequest {
         this.password = "";
     }
 }
-module.exports = Sample;
+module.exports = RegisterRequest;

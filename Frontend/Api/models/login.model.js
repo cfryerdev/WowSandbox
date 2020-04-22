@@ -16,10 +16,10 @@
  *       password:
  *         type: string
  */
-class Sample {
+class LoginRequest {
     constructor() {
         this.username = "";
         this.password = "";
     }
 }
-module.exports = Sample;
+module.exports = LoginRequest;

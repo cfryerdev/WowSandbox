@@ -1,0 +1,1 @@
+// https://trinitycore.atlassian.net/wiki/spaces/tc/pages/2129967/ChrClasses

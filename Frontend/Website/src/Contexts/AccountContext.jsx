@@ -18,7 +18,7 @@ const AccountContext = React.createContext(stateStructure);
 
 const AccountConsumer = AccountContext.Consumer;
 
-const WS_BASE_URL = process.env.WS_BASE_URL || "http://localhost:3001";
+const WS_BASE_URL = process.env.WS_BASE_URL || "http://cfryerdev.ddns.net:3001";
 
 class AccountProvider extends Component {
   constructor(state, props) {
